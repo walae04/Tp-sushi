@@ -1,16 +1,18 @@
 package org.ldv.sushiapi.model.entity
 
 import jakarta.persistence.*
+
 @Entity
 @Table(name = "boxes")
-class Boxes (
+class Box (
     @Id
-    @GeneratedValue(GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     val boxId: Long? = null,
     val nom: String,
     val nbPieces: Int,
     val prix: Double,
     val nomImage: String? = null,
+
 // Relation many to many des boxes aux saveurs :
     @ManyToMany
     @JoinTable(
